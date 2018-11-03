@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(version: 20181103162917) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "books", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_books_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "description"
     t.boolean  "state"
@@ -56,7 +48,6 @@ ActiveRecord::Schema.define(version: 20181103162917) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer  "scoreId"
     t.integer  "value"
     t.date     "scoreDate"
     t.datetime "created_at", null: false
@@ -79,7 +70,6 @@ ActiveRecord::Schema.define(version: 20181103162917) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "userId"
     t.string   "name"
     t.string   "email"
     t.string   "password"
