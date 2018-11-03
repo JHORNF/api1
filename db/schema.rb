@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20181103162917) do
 
   create_table "answers", force: :cascade do |t|
+    t.integer  "questionId"
     t.string   "description"
     t.boolean  "state"
     t.boolean  "stateDrop"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20181103162917) do
   end
 
   create_table "challenges", force: :cascade do |t|
+    t.integer  "questionId"
     t.string   "name"
     t.integer  "time"
     t.integer  "points"
@@ -37,7 +39,7 @@ ActiveRecord::Schema.define(version: 20181103162917) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "questionId"
+    t.integer  "categoryId"
     t.string   "name"
     t.string   "description"
     t.integer  "point"
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20181103162917) do
   end
 
   create_table "scores", force: :cascade do |t|
+    t.integer  "userId"
     t.integer  "value"
     t.date     "scoreDate"
     t.datetime "created_at", null: false

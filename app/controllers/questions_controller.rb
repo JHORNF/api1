@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
       :categoryId,  
       :name,  
       :description,
-      :points,
+      :point,
       :image,
       :state
     )

@@ -1,7 +1,7 @@
 class UserChallengesController < ApplicationController
 
     def create
-            userChallenge = UserChallenge.create(userChallenges_params)
+            userChallenge = UserChallenge.create(userChallenge_params)
             render json: userChallenge, status: :ok
     end
     
