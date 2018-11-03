@@ -2,6 +2,7 @@ class CreateScores < ActiveRecord::Migration[5.0]
   def change
     create_table :scores do |t|
      
+      t.integer :userId
       t.integer :value
       t.date :scoreDate
 

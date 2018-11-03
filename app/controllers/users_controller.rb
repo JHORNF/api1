@@ -5,10 +5,16 @@ class UsersController < ApplicationController
             render json: user, status: :ok
     end
     
+    def index
+        user = User.all
+        render json: user, status: :ok
+        
+    end
+    
     private
     
     def user_params
-            params.permit(:username, :password)
+            params.permit(:name, :email, :password)
     end
     
 end
