@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-    has_many:answuer
-    belons_to :category 
-    has_many :challange
+    has_many:answer
+    belongs_to :category 
+    has_many :challenge
 end

@@ -3,7 +3,7 @@ class CreateUserChallenges < ActiveRecord::Migration[5.0]
     create_table :user_challenges do |t|
       t.integer :userId
       t.integer :challengeId
-      t.byte :state
+      t.integer :state
 
       t.timestamps
     end

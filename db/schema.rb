@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181027194420) do
+ActiveRecord::Schema.define(version: 20181103162917) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "description"
+    t.boolean  "state"
+    t.boolean  "stateDrop"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
@@ -20,8 +28,60 @@ ActiveRecord::Schema.define(version: 20181027194420) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.string   "description"
+    t.boolean  "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
     t.string   "name"
+    t.integer  "time"
+    t.integer  "points"
+    t.boolean  "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "questionId"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "point"
+    t.string   "image"
+    t.boolean  "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "scoreId"
+    t.integer  "value"
+    t.date     "scoreDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_challenges", force: :cascade do |t|
+    t.integer  "userId"
+    t.integer  "challengeId"
+    t.integer  "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.integer  "userId"
+    t.integer  "questionId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer  "userId"
+    t.string   "name"
+    t.string   "email"
     t.string   "password"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

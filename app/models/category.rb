@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-    belons_to :question
+    belongs_to :question
 end
