@@ -7,6 +7,7 @@ class CreateChallenges < ActiveRecord::Migration[5.0]
       t.integer :points
       t.boolean :state
 
+
       t.timestamps
     end
   end
