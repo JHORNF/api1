@@ -1,11 +1,10 @@
 class CreateAnswers < ActiveRecord::Migration[5.0]
   def change
     create_table :answers do |t|
-      
-      t.integer :questionId
+      t.references :question, foreign_key: true
       t.string :description
       t.boolean :state
-      t.boolean :stateDrop
+      t.boolean :state_drop
 
       t.timestamps
     end

@@ -11,10 +11,27 @@ class UsersController < ApplicationController
         
     end
     
+    def destroy
+        user= User.find(params[:id])
+        user.destroy
+    end
+    
+    def show
+        user = User.find(params[:id])
+        render json: user, status: :ok
+    end
+    
+    def update
+       User.update(user_params)
+    end
+    
     private
     
     def user_params
-            params.permit(:name, :email, :password)
+            params.permit(
+            :name,
+            :email,
+            :password)
     end
     
 end

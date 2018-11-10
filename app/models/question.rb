@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
-    has_many:answer
-    belongs_to :category 
-    has_many :challenge
+  belongs_to :category
+  has_and_belongs_to_many :users
+  has_many :challenges
+  has_many :answers 
 end

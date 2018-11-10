@@ -10,11 +10,25 @@ class ScoresController < ApplicationController
         render json: score, status: :ok
         
     end
+ 
+    def show
+        score  = Score.find(params[:id])
+        render json: score , status: :ok
+    end
+   
+   def destroy
+        score = Score.find(params[:id])
+        score.destroy
+    end
     
+    def update
+       Score.update(score_params)
+    end
+   
     private
     
     def score_params
-            params.permit(:userId, :value, :scoreDate)
+            params.permit(:user_id, :points, :date)
     end
 
 end

@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
 
     def index
-        question = Question.all
-        render json: question, status: :ok
+        answer = Answer.all
+        render json: answer, status: :ok
     end
     def create
         answer = Answer.create!(answer_params)
@@ -10,11 +10,26 @@ class AnswersController < ApplicationController
         json_response(response, :created)
     end
     
+    def show
+        answer = Answer.find(params[:id])
+        render json: answer, status: :ok
+    end
+    
+    def destroy
+        answer = Answer.find(params[:id])
+        answer.destroy
+    end
+    
+    def update
+       Answer.update(answer_params)
+    end  
+    
+    
     private
 
   def answer_params
     params.permit(
-      :questionId,
+      :question_id,
       :description,
       :state,
       :state_drop

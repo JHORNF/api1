@@ -8,8 +8,15 @@ Rails.application.routes.draw do
   get 'challenges', to: 'challenges#index'
   get 'scores', to: 'scores#index'
   get 'userQuestions', to: 'user_questions#index'
-  get 'userChallenges', to: 'user_challenges#index'
+  get 'solutions', to: 'solutions#index'
   
+  get 'user/:id', to: 'users#show'
+  get 'answer/:id', to: 'answers#show'
+  get 'category/:id', to: 'categories#show'  
+  get 'question/:id', to: 'questions#show'
+  get 'challenge/:id', to: 'challanges#show'
+  get 'score/:id', to: 'scores#show'    
+  get 'solution/:id', to: 'solutions#show'  
   
   post 'category', to: 'categories#create'
   post 'answer', to: 'answers#create'
@@ -18,9 +25,23 @@ Rails.application.routes.draw do
   post 'user', to: 'users#create'
   post 'score', to: 'scores#create'
   post 'userQuestion', to: 'user_questions#create'
-  post 'userChallenge', to: 'user_challenges#create'
+  post 'solutions', to: 'solutions#create'
   
+  delete 'category/:id', to: 'categories#destroy'
+  delete 'answer/:id', to: 'answers#destroy'
+  delete 'question/:id', to: 'questions#destroy'
+  delete 'challenege/:id', to: 'challenges#destroy'
+  delete 'user/:id', to: 'users#destroy'
+  delete 'score/:id', to: 'scores#destroy'
+  delete 'solution/:id', to: 'solutions#destroy'
   
+  put 'category/:id', to: 'categories#update'
+  put 'answer/:id', to: 'answers#update'
+  put 'question/:id', to: 'questions#update'
+  put 'challenege/:id', to: 'challenges#update'
+  put 'user/:id', to: 'users#update'
+  put 'score/:id', to: 'scores#update'
+  put 'solution/:id', to: 'solutions#update'
   
   resources :users
   resources :scores

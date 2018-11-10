@@ -9,16 +9,24 @@ class ChallengesController < ApplicationController
         render json: challenge, status: :ok
     end
     
+    def show
+        challenge = Challenge.find(params[:id])
+        render json: challenge, status: :ok
+    end
+    def update
+       Challenge.update(challenge_params)
+    end 
+    
     private
 
   def challenge_params
     params.permit(
-      :categoryId,  
+      :question_id,  
       :name,  
-      :description,
-      :points,
-      :image,
-      :state
+      :time,
+      :point,
+      :state,
+      :state_drop
     )
   end
 
